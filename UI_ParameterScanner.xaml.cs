@@ -51,15 +51,24 @@ namespace engBIM
                     .WhereElementIsNotElementType()
                     .Where(a =>
                     {
+                        // Get the parameter by name
                         var parameterName = a.LookupParameter(txtBox_ParameterName.Text);
                         string parameterValue = txtBox_ParameterValue.Text;
-                        if (parameterName == null || !parameterName.HasValue)
-                            return parameterValue == "";
-                        string valorParametro = parameterName.AsString();
+
+                        // Check if parameter is null or not valid
+                        if (parameterName == null)
+                            return false;
+
+                        // If parameter exists and no value is specified
                         if (parameterValue == "")
-                            return string.IsNullOrEmpty(valorParametro);
+                            return string.IsNullOrEmpty(parameterName.AsString());
+
                         else
-                            return valorParametro.Contains(parameterValue);
+                        {
+                            // If there's a parameter value to search for, check if the parameter matches
+                            string paramValue = parameterName.AsString();
+                            return paramValue != null && paramValue.Contains(parameterValue);
+                        }
                     }).ToList();
 
                     //The list of 'IDs' is initialized, where all the elements that meet the requirements will be stored.
@@ -104,20 +113,28 @@ namespace engBIM
                 //validated that it is in the correct view type
                 if (view.ViewType == ViewType.FloorPlan || view.ViewType == ViewType.CeilingPlan || view.ViewType == ViewType.ThreeD)
                 {
-                    //Get all the elements that have both the parameter name and parameter value
                     var selectedElements = new FilteredElementCollector(doc, view.Id)
                     .WhereElementIsNotElementType()
                     .Where(a =>
                     {
+                        // Get the parameter by name
                         var parameterName = a.LookupParameter(txtBox_ParameterName.Text);
                         string parameterValue = txtBox_ParameterValue.Text;
-                        if (parameterName == null || !parameterName.HasValue)
-                            return parameterValue == "";
-                        string valorParametro = parameterName.AsString();
-                        if (parameterValue == "")
-                            return string.IsNullOrEmpty(valorParametro);
+
+                        // Check if parameter is null or not valid
+                        if (parameterName == null)
+                            return false; 
+
+                        // If parameter exists and no value is specified
+                        if (parameterValue == "")                                                    
+                            return string.IsNullOrEmpty(parameterName.AsString());
+                        
                         else
-                            return valorParametro.Contains(parameterValue);
+                        {
+                            // If there's a parameter value to search for, check if the parameter matches
+                            string paramValue = parameterName.AsString();
+                            return paramValue != null && paramValue.Contains(parameterValue);
+                        }
                     }).ToList();
 
                     //The list of 'IDs' is initialized, where all the elements that meet the requirements will be stored.
