@@ -32,6 +32,12 @@ Once the installation is complete:
     6. Use the left button to isolate the elements that contain the value in the specified parameter.
     7. Use the right button to select the elements that contain the value in the specified parameter.
 
+## Notes
+Please note the following considerations:
+
+    1. add-in only work within Floor Plans, Reflected Ceiling Plans, and 3D Views.
+    2. A warning message will appear if the 'Parameter Name' field is left empty.
+    3. To select all elements that have the parameter unfilled, enter the parameter name and leave the 'Parameter Value' field blank.
 ## License
 This project is intended for evaluation purposes only and is not licensed for public distribution or commercial use. The code is submitted as part of an application process with [eng] and is restricted to internal review. All rights to the code remain with the author until a formal agreement is established.
 
