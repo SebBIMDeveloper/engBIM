@@ -1,18 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autodesk.Revit.UI;
-using Autodesk.Revit;
-
-using Autodesk.Revit.DB.Mechanical;
+﻿using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
-using Autodesk.Revit.UI.Selection;
-
-using System.Windows.Media.Imaging;
-using System.Drawing.Imaging;
-using System.Windows.Media;
 
 namespace engBIM
 {
